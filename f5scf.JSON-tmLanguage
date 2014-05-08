@@ -301,7 +301,7 @@
       }
     },
     {
-      "match": "([ \t])(disabled|enabled|any|tcp|udp|icmp|sctp)\\b",
+      "match": "([ \t])(disabled|enabled|any|tcp|udp|icmp|sctp|tcp6|udp6)\\b",
       "captures": {
         "2": { "name": "constant.language.reserved.scf" }
       }

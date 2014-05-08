@@ -503,7 +503,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>([ 	])(disabled|enabled|any|tcp|udp|icmp|sctp)\b</string>
+			<string>([ 	])(disabled|enabled|any|tcp|udp|icmp|sctp|tcp6|udp6)\b</string>
 		</dict>
 		<dict>
 			<key>include</key>
