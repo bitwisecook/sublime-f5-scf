@@ -61,6 +61,28 @@
 				<key>3</key>
 				<dict>
 					<key>name</key>
+					<string>variable.parameter.dbkey.scf</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^(sys)\s+(db)\s+((acceleration|alertd|apm|arp|asm|asmconffailure|avr|bd|bigd|bigpipe|bigstart|boot|bwc|cbrd|cluster|clustered|clustermbr|cmp|compression|config|configsync|connection|cpu|crypto|d68|datastor|deduplication|device|dhclient|diameter|dns|dnscacheresolver|dnsexpress|dnssec|dos|dosl7|dosl7d|dpid|failover|geolocation|gtm|hostname|httpagents|icontrol|icsa|iprep|ipsec|iptunnel|ipv6|isession|keyboard|lacpd|lcd|license|liveinstall|log|logcheck|logd|logrotate|ltm|mcpd|md|merged|mode|mysqldfailure|mysqlhad|named|ntp|packetfilter|password|pccd|pem|persist|platform|provision|provisioned|proxy|pva|pvasyncookies|quickassist|ramcache|rateshaper|route|rule|saspd|scheduler|security|service|setup|sflow|snat|snmp|spdy|ssd|ssl|statemirror|statsd|switchboard|systemauth|tamd|tcp|tcpdump|tm|tmm|tmplugin|tmrouted|tmui|total|trunk|trust|tsconfd|ucs|udp|ui|unix|upgradeselector|user|users|vcmp|vcmpd|vendor|version|vlan|vlangroup|vpn|wam|watchdog|wccp|webserver|woc|wocd|wocplugin|wom)\.[A-Za-z0-9_.]+)\s+{</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.module.scf</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.component.scf</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
 					<string>variable.parameter.folder.scf</string>
 				</dict>
 				<key>4</key>
@@ -88,11 +110,28 @@
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>variable.interface.scf</string>
+					<string>constant.numeric.interface.scf</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>^(net)\s+(interface)\s+([0-4]\/[0-9]\.[0-9]+)\s+{</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.property.scf</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.vlantag.scf</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^\s+(tag)\s+(409[0-6]|40[0-8][0-9]|[123][0-9]{0,3}|[456789][0-9]{0,2}|0)$</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -411,7 +450,19 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>:?0*(?:6553[0-5]|655[0-2][0-9]|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])\b</string>
+			<string>:?0*(6553[0-5]|655[0-2][0-9]|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])\b</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>string.unquoted.fqdn.scf</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>\s+([A-Za-z_](\.?[A-Za-z0-9_-]+)(\.[A-Za-z0-9_-]+){1,16})\.?\s?</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -445,26 +496,14 @@
 		<dict>
 			<key>captures</key>
 			<dict>
-				<key>0</key>
+				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.other.scf</string>
+					<string>constant.language.reserved.scf</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b([0-9]+)\b</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.variable.scf</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>\b\$\w+\b</string>
+			<string>([ 	])(disabled|enabled|any|tcp|udp|icmp|sctp)\b</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -672,6 +711,6 @@
 		</dict>
 	</dict>
 	<key>scopeName</key>
-	<string>source.scf</string>
+	<string>text.scf</string>
 </dict>
 </plist>
